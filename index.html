@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TOOLNDY • Precision Tool & Die Manufacturing</title>
+  <meta name="description" content="TOOLNDY provides precision tool & die manufacturing, CNC machining, EDM, mould design, and rapid quoting for companies and individuals." />
+  <meta name="theme-color" content="#7a5336" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* Chocolate-flavoured, not-too-dark palette */
+      --choco-50:#f8f3ef; /* cream */
+      --choco-100:#efe4db;
+      --choco-200:#e6d3c2;
+      --choco-300:#d9bba1;
+      --choco-400:#caa17f; /* caramel */
+      --choco-500:#b7805a; /* milk-chocolate */
+      --choco-600:#966547; /* cocoa */
+      --choco-700:#7a5336; /* rich cocoa */
+      --choco-800:#5e3e28; /* dark chocolate */
+      --brand:#7a5336;
+      --accent:#d9bba1;
+      --text:#2a1e18; /* deep brown */
+      --muted:#5b4a40;
+      --glass-bg: rgba(255,255,255,0.62);
+      --glass-stroke: rgba(255,255,255,0.55);
+      --glass-shadow: 0 20px 60px rgba(70, 46, 30, 0.25);
+      --radius-xl: 24px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 85% -10%, var(--choco-200), transparent 60%),
+                  radial-gradient(900px 900px at -10% 10%, var(--choco-100), transparent 60%),
+                  linear-gradient(180deg, var(--choco-50), var(--choco-200));
+      background-attachment: fixed;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 20px}
+    .nav{
+      position:sticky;top:0;z-index:50;
+      backdrop-filter:saturate(140%) blur(14px);
+      background:linear-gradient(180deg, rgba(255,255,255,0.75), rgba(255,255,255,0.55));
+      border-bottom:1px solid rgba(255,255,255,0.6);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:0.2px}
+    .brand .logo{width:38px;height:38px;border-radius:14px;background:conic-gradient(from 120deg, var(--choco-400), var(--choco-600), var(--choco-300));box-shadow:var(--glass-shadow);border:1px solid rgba(255,255,255,0.7)}
+    .nav a.link{padding:10px 14px;border-radius:12px;border:1px solid transparent}
+    .nav a.link:hover{border-color:rgba(122,83,54,0.25);background:rgba(255,255,255,0.65)}
+    .cta{padding:10px 16px;border-radius:999px;border:1px solid var(--glass-stroke);background:var(--glass-bg);backdrop-filter:blur(12px);box-shadow:var(--glass-shadow);font-weight:600}
+
+    .hero{padding:84px 0 40px}
+    .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:36px;align-items:center}
+    .hero h1{font-size:56px;line-height:1.05;margin:0 0 12px}
+    .hero p.lead{font-size:18px;color:var(--muted);margin:0 0 20px}
+    .glass{
+      background:var(--glass-bg);
+      border:1px solid var(--glass-stroke);
+      box-shadow:var(--glass-shadow);
+      border-radius:var(--radius-xl);
+      backdrop-filter: blur(16px) saturate(120%);
+    }
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+    .stat{padding:16px;text-align:center}
+    .stat h3{margin:0;font-size:28px}
+    .stat p{margin:6px 0 0;color:var(--muted);font-size:12px}
+
+    .chip{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border-radius:999px;background:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.65);font-weight:600;font-size:12px;color:var(--brand)}
+
+    .mock{aspect-ratio:4/3;border-radius:20px;background:linear-gradient(120deg,rgba(122,83,54,0.18),rgba(255,255,255,0.7));border:1px solid rgba(255,255,255,0.7);position:relative;overflow:hidden}
+    .mock::after{content:"";position:absolute;inset:-20% -20% auto auto;width:60%;height:140%;background:linear-gradient(90deg, rgba(255,255,255,0.75), rgba(255,255,255,0));transform:rotate(12deg)}
+
+    section{padding:70px 0}
+    .section-title{font-size:36px;margin:0 0 8px}
+    .section-sub{color:var(--muted);margin:0 0 24px}
+
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{padding:22px}
+    .card h4{margin:0 0 8px}
+    .card p{margin:6px 0 0;color:var(--muted);font-size:14px}
+
+    .process{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+    .step{padding:18px;text-align:center}
+    .step .num{font-weight:900;font-size:28px;color:var(--brand)}
+
+    .quality{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .quality ul{margin:0;padding-left:18px}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+    .ph{aspect-ratio:1;border-radius:16px;background:linear-gradient(180deg, rgba(122,83,54,0.18), rgba(255,255,255,0.65));border:1px solid rgba(255,255,255,0.7)}
+
+    .rfq{display:grid;grid-template-columns:1.1fr 0.9fr;gap:24px}
+    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    input, textarea, select{
+      width:100%;padding:12px 14px;border-radius:14px;border:1px solid rgba(122,83,54,0.25);
+      background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);
+      font:inherit;color:var(--text)
+    }
+    textarea{min-height:120px;resize:vertical}
+    label{display:block;font-size:12px;color:var(--muted);margin:10px 0 6px}
+
+    .footer{padding:40px 0 60px;color:#3c2c23}
+    .cols{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:18px}
+    .cols a{color:#4a382e}
+    .small{font-size:12px;color:#6b5a51}
+
+    .badge{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.8);border:1px solid rgba(255,255,255,0.65);font-size:12px}
+
+    .top{position:fixed;right:18px;bottom:18px}
+
+    @media (max-width: 1024px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr 1fr}
+      .process{grid-template-columns:repeat(3,1fr)}
+      .quality{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(3,1fr)}
+      .rfq{grid-template-columns:1fr}
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .cols{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width: 640px){
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .stats{grid-template-columns:1fr 1fr}
+      .cols{grid-template-columns:1fr}
+      .hero h1{font-size:40px}
+    }
+  </style>
+  <script>
+    // Simple hash-based active nav
+    document.addEventListener('DOMContentLoaded',()=>{
+      const links=[...document.querySelectorAll('.nav a.link')];
+      const markActive=()=>{
+        const hash=location.hash||'#home';
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')===hash));
+      };
+      window.addEventListener('hashchange', markActive);
+      markActive();
+    });
+  </script>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#home" aria-label="TOOLNDY Home">
+        <div class="logo" aria-hidden="true"></div>
+        <span>TOOL<span style="color:var(--brand)">NDY</span></span>
+      </a>
+      <div style="display:flex;gap:6px;align-items:center">
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#capabilities">Capabilities</a>
+        <a class="link" href="#process">Process</a>
+        <a class="link" href="#quality">Quality</a>
+        <a class="link" href="#gallery">Gallery</a>
+        <a class="link" href="#rfq">RFQ</a>
+        <a class="link" href="#contact">Contact</a>
+        <a class="cta" href="#rfq">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="hero container">
+    <div class="hero-grid">
+      <div>
+        <span class="chip">Precision • Tool & Die • CNC</span>
+        <h1>Precision Tool & Die Manufacturing</h1>
+        <p class="lead">From rapid RFQ to on‑time delivery: moulds, dies, jigs, fixtures, and production tooling for companies and individual innovators.</p>
+        <div style="display:flex;gap:10px;margin-top:10px">
+          <a class="cta" href="#rfq">Start RFQ</a>
+          <a class="cta" href="#services" style="background:rgba(255,255,255,0.85)">Explore Services</a>
+        </div>
+        <div class="stats">
+          <div class="glass stat"><h3>±5 µm</h3><p>Typical tolerance (EDM/CNC)</p></div>
+          <div class="glass stat"><h3>24–72 h</h3><p>Rapid DFM & quote</p></div>
+          <div class="glass stat"><h3>100%</h3><p>Inspection before dispatch</p></div>
+          <div class="glass stat"><h3>ISO‑ready</h3><p>Docs & traceability</p></div>
+        </div>
+      </div>
+      <div class="glass" style="padding:16px">
+        <div class="mock"></div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+          <span class="badge">CNC Milling (3/4/5‑axis)</span>
+          <span class="badge">Wire & Die‑Sink EDM</span>
+          <span class="badge">Surface Grinding</span>
+          <span class="badge">Heat Treatment</span>
+          <span class="badge">Mould Try‑outs</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- SERVICES -->
+  <section id="services" class="container">
+    <h2 class="section-title">Services</h2>
+    <p class="section-sub">End‑to‑end toolroom for tooling, moulds, and precision parts.</p>
+    <div class="grid-3">
+      <article class="glass card">
+        <h4>Tool & Die Manufacturing</h4>
+        <p>Press tools, progressive dies, draw dies, and custom fixtures for production lines.</p>
+      </article>
+      <article class="glass card">
+        <h4>Injection & Blow Moulds</h4>
+        <p>Mould design, core–cavity manufacturing, try‑out, and validation reports.</p>
+      </article>
+      <article class="glass card">
+        <h4>CNC Machining</h4>
+        <p>High‑precision milling & turning with CAM programming and toolpath optimization.</p>
+      </article>
+      <article class="glass card">
+        <h4>EDM & Wire‑cut</h4>
+        <p>Sharp internal corners, small features, and hard materials with micro‑finish.</p>
+      </article>
+      <article class="glass card">
+        <h4>Grinding & Polishing</h4>
+        <p>Surface, cylindrical, and profile grinding up to Ra 0.2.</p>
+      </article>
+      <article class="glass card">
+        <h4>Reverse Engineering</h4>
+        <p>From sample to CAD to tool, with CMM verification and PPAP documentation.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES -->
+  <section id="capabilities" class="container">
+    <h2 class="section-title">Capabilities</h2>
+    <p class="section-sub">Materials: H13, P20, D2/D3, EN31, OHNS, SS 304/316, Aluminium 6061/7075, Brass, etc.</p>
+    <div class="grid-3">
+      <div class="glass card"><h4>Max Work Envelope</h4><p>Up to 1000 × 600 × 500 mm (milling) and Ø300 × 500 mm (turning).</p></div>
+      <div class="glass card"><h4>Tolerances</h4><p>General ±20 µm, critical features ±5–10 µm (process‑dependent).</p></div>
+      <div class="glass card"><h4>File Formats</h4><p>STEP, IGES, Parasolid, DXF/DWG, STL. CAM: Mastercam, Fusion, NX.</p></div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="container">
+    <h2 class="section-title">Process</h2>
+    <p class="section-sub">Transparent stages from RFQ to delivery.</p>
+    <div class="process">
+      <div class="glass step"><div class="num">01</div><div>RFQ</div><small>CAD, drawing, quantity, material</small></div>
+      <div class="glass step"><div class="num">02</div><div>DFM + Quote</div><small>Feasibility, lead time, cost</small></div>
+      <div class="glass step"><div class="num">03</div><div>Design</div><small>Tool design & review</small></div>
+      <div class="glass step"><div class="num">04</div><div>Manufacture</div><small>CNC/EDM/Grinding</small></div>
+      <div class="glass step"><div class="num">05</div><div>QC</div><small>CMM, gauges, reports</small></div>
+      <div class="glass step"><div class="num">06</div><div>Dispatch</div><small>Packing & logistics</small></div>
+    </div>
+  </section>
+
+  <!-- QUALITY -->
+  <section id="quality" class="container">
+    <h2 class="section-title">Quality & Standards</h2>
+    <div class="quality">
+      <div class="glass card">
+        <h4>Inspection</h4>
+        <ul>
+          <li>CMM & height gauge inspection reports</li>
+          <li>Material & hardness certificates</li>
+          <li>Lot traceability and serialization</li>
+          <li>PPAP & FAI support on request</li>
+        </ul>
+      </div>
+      <div class="glass card">
+        <h4>Compliance</h4>
+        <ul>
+          <li>ISO 9001‑ready documentation</li>
+          <li>Calibrated instruments per schedule</li>
+          <li>Supplier quality audits & heat‑treatment records</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="container">
+    <h2 class="section-title">Gallery</h2>
+    <p class="section-sub">Snapshots from projects (replace with your images).</p>
+    <div class="gallery">
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+      <div class="ph glass"></div>
+    </div>
+  </section>
+
+  <!-- RFQ FORM -->
+  <section id="rfq" class="container">
+    <h2 class="section-title">Request for Quotation (RFQ)</h2>
+    <p class="section-sub">Share your requirements. We'll respond with DFM notes and pricing within 24–72 hours.</p>
+    <div class="rfq">
+      <form class="glass card" onsubmit="handleRFQ(event)">
+        <div class="row">
+          <div>
+            <label for="company">Company / Individual</label>
+            <input id="company" name="company" placeholder="Your company name" required />
+          </div>
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Full name" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required />
+          </div>
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" placeholder="+91‑" />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="material">Material</label>
+            <input id="material" name="material" placeholder="e.g., H13, P20, EN31, Aluminium 7075" />
+          </div>
+          <div>
+            <label for="qty">Quantity</label>
+            <input id="qty" name="qty" type="number" min="1" placeholder="e.g., 2" />
+          </div>
+        </div>
+        <label for="tolerance">Critical Tolerances / Finish</label>
+        <input id="tolerance" name="tolerance" placeholder="e.g., ±10 µm, Ra 0.4" />
+        <label for="details">Part / Tool Details</label>
+        <textarea id="details" name="details" placeholder="Describe the part/tool, size, any special notes"></textarea>
+        <div class="row">
+          <div>
+            <label for="deadline">Target Lead Time</label>
+            <select id="deadline" name="deadline">
+              <option value="flexible">Flexible</option>
+              <option>1–2 weeks</option>
+              <option>2–4 weeks</option>
+              <option>4+ weeks</option>
+            </select>
+          </div>
+          <div>
+            <label for="nda">NDA</label>
+            <select id="nda" name="nda">
+              <option>No NDA required</option>
+              <option>Send NDA</option>
+            </select>
+          </div>
+        </div>
+        <p class="small">Attachments: after submitting, you'll receive an email link to securely upload CAD/DWG files.</p>
+        <button class="cta" type="submit">Submit RFQ</button>
+      </form>
+      <aside class="glass card">
+        <h4>What to include</h4>
+        <p class="small">• Drawings or 3D model • Material • Quantity • Key tolerances • Any standards (DIN, IS, ASTM) • Finish • Target lead time.</p>
+        <h4>Why choose us</h4>
+        <p class="small">• Quick DFM feedback • Tight tolerances • Transparent timelines • Full inspection report</p>
+        <div style="margin-top:10px">
+          <span class="badge">PAN India shipping</span>
+          <span class="badge">Customs-ready docs</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="container">
+    <h2 class="section-title">Contact</h2>
+    <div class="grid-3">
+      <div class="glass card">
+        <h4>Address</h4>
+        <p>TOOLNDY Toolroom<br/>Sullurpeta, Andhra Pradesh, India</p>
+      </div>
+      <div class="glass card">
+        <h4>Email</h4>
+        <p><a href="mailto:rfq@toolndy.mmtimes.in">rfq@toolndy.mmtimes.in</a></p>
+      </div>
+      <div class="glass card">
+        <h4>Phone</h4>
+        <p><a href="tel:+91XXXXXXXXXX">+91‑XXXXXXXXXX</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container cols">
+      <div>
+        <div class="brand"><div class="logo" aria-hidden="true"></div><strong>TOOLNDY</strong></div>
+        <p class="small">Precision tool & die manufacturing. © <span id="year"></span> TOOLNDY.</p>
+      </div>
+      <div>
+        <h5>Company</h5>
+        <a href="#services">Services</a><br>
+        <a href="#capabilities">Capabilities</a><br>
+        <a href="#quality">Quality</a>
+      </div>
+      <div>
+        <h5>Support</h5>
+        <a href="#rfq">RFQ</a><br>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h5>Policies</h5>
+        <a href="#">Terms</a><br>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <a class="cta top" href="#home" aria-label="Back to top">↑</a>
+
+  <script>
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // RFQ handler: use mailto or webhook; here we'll create a mailto with body composed.
+    function handleRFQ(e){
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(e.target).entries());
+      const subject = encodeURIComponent(`RFQ – ${data.company} – ${data.name}`);
+      const lines = [
+        `Name: ${data.name}`,
+        `Company: ${data.company}`,
+        `Email: ${data.email}`,
+        `Phone: ${data.phone||'-'}`,
+        `Material: ${data.material||'-'}`,
+        `Quantity: ${data.qty||'-'}`,
+        `Tolerance: ${data.tolerance||'-'}`,
+        `Lead Time: ${data.deadline||'-'}`,
+        `NDA: ${data.nda||'-'}`,
+        `Details: ${data.details||'-'}`,
+      ].join('%0D%0A');
+      // TODO: replace with your email
+      const to = 'rfq@toolndy.mmtimes.in';
+      window.location.href = `mailto:${to}?subject=${subject}&body=${lines}`;
+      alert('Thanks! Your mail client will open to send the RFQ. For CAD files, attach them there.');
+    }
+  </script>
+
+  <!-- SEO: LocalBusiness Schema (update contact/dates as needed) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TOOLNDY Tool & Die Manufacturing",
+    "url": "https://toolndy.mmtimes.in",
+    "email": "rfq@toolndy.mmtimes.in",
+    "telephone": "+91XXXXXXXXXX",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Sullurpeta",
+      "addressRegion": "Andhra Pradesh",
+      "addressCountry": "IN"
+    },
+    "sameAs": [],
+    "openingHours": "Mo-Fr 09:00-18:00",
+    "description": "Precision tool & die manufacturing, CNC machining, EDM, moulds, jigs, fixtures.",
+    "image": "https://toolndy.mmtimes.in/og.jpg"
+  }
+  </script>
+</body>
+</html>
